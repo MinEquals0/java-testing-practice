@@ -12,6 +12,8 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 public class BeforeAllTest {
     private static Map<String, String> map;
 
+    // 클래스 레벨에서 테스트케이스를 한꺼번에 실행시키면
+    // 테스트 케이스 실행 전 딱 한버만 초기화 작업함
     @BeforeAll
     public static void initAll() {
         map = new HashMap<>();
@@ -27,15 +29,13 @@ public class BeforeAllTest {
     @DisplayName("Test case 1")
     @Test
     public void beforeEachTest() {
-        assertDoesNotThrow(() -> getCryptoCurrency("XRP"));
+        assertDoesNotThrow(()->getCryptoCurrency("XRP"));
     }
-
-
 
     @DisplayName("Test case 2")
     @Test
     public void beforeEachTest2() {
-        assertDoesNotThrow(() -> getCryptoCurrency("ADA"));
+        assertDoesNotThrow(()-> getCryptoCurrency("ADA"));
     }
 
     private String getCryptoCurrency(String unit) {
