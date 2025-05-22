@@ -13,7 +13,7 @@ public class BeforeEach2Test {
     private Map<String, String> map;
 
     @BeforeEach
-    public void init() {
+    public void init(){
         map = new HashMap<>();
         map.put("BTC", "Bitcoin");
         map.put("ETH", "Ethereum");
@@ -23,19 +23,21 @@ public class BeforeEach2Test {
 
     @DisplayName("Test case 1")
     @Test
-    public void beforeEachTest() {
+    public void beforeEachTest(){
         map.put("XRP", "Ripple");
-        assertDoesNotThrow(() -> getCryptoCurrency("XRP"));
+        // 예외가 발생하지 않는다고 기대하는 메서드
+        assertDoesNotThrow(()-> getCryptoCurrency("XRP"));
     }
 
     @DisplayName("Test case 2")
     @Test
     public void beforeEachTest2() {
         System.out.println(map);
-        assertDoesNotThrow(() -> getCryptoCurrency("ETH"));
+        assertDoesNotThrow(() -> getCryptoCurrency("XRP"));
     }
 
     private String getCryptoCurrency(String unit) {
         return map.get(unit).toUpperCase();
     }
+
 }
