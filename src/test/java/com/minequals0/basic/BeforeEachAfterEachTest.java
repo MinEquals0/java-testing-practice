@@ -1,6 +1,5 @@
 package com.minequals0.basic;
 
-import org.aspectj.lang.annotation.After;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -9,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+// 각 테스트마다 list는 새로 만들어짐
+// -> 서로 영향 없음
 public class BeforeEachAfterEachTest {
 
     private List<String> list;
